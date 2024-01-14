@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
+<!-- width="63.999996"
+   height="63.999996"  -->
 <svg
-   width="76.000008"
-   height="76.000008"
-   viewBox="0 0 20.108334 20.108334"
+   width="53.87" 
+   height="43.61"
+   viewBox="0 0 16.933332 16.933332"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -18,7 +19,7 @@
          id="path6"
          d="m -100.74221,136.50937 a 32.000004,32.000004 0 0 1 -31.9977,32 32.000004,32.000004 0 0 1 -32.00231,-31.99538 32.000004,32.000004 0 0 1 31.99306,-32.00462 32.000004,32.000004 0 0 1 32.00694,31.99075 l -32,0.009 z" /></clipPath></defs><g
      id="layer1"
-     transform="matrix(1.1874999,0,0,1.1875001,207.41442,-111.17227)"><image
+     transform="translate(174.66479,-93.618746)"><image
        width="84"
        height="84"
        preserveAspectRatio="none"
