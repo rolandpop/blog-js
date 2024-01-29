@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://rolandpop.com',
-  siteRepo: 'https://github.com/rolandpop/blog-js/tree/main',
+  siteRepo: 'https://github.com/rolandpop/blog-js/',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
