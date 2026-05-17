@@ -81,7 +81,14 @@ module.exports = () => {
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgo: false,
+            },
+          },
+        ],
       })
 
       return config
