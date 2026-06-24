@@ -1,0 +1,119 @@
+---
+layout: layouts/post.njk
+permalink: /blog/solid-dip/index.html
+title: Dependency Inversion Principle
+date: '2024-02-06'
+tags: ['SOLID']
+draft: false
+description: Dependency Inversion Principle (DIP) in SOLID emphasizes designing flexible and maintainable software by promoting high-level modules that depend on abstractions rather than concrete implementations. This principle encourages the use of abstract interfaces, composition over inheritance, and explicit constructor listings to manage dependencies effectively. DIP fosters a modular and adaptable codebase, enabling developers to enhance system resilience and ease of maintenance.
+---
+
+# Dependency Inversion Principle
+
+## Introduction
+
+Dependency Inversion emphasizes the importance of decoupling high-level modules from low-level ones, promoting dependence on abstractions rather than concrete implementations. As developers, our goal is to create flexible systems that can adapt to changes without causing a cascade of modifications.
+
+## Abstractions over concretions
+
+The heart of Dependency Inversion lies in having source code dependencies refer only to abstractions, avoiding direct dependencies on concrete implementations. While this idealistic approach is challenging in real-world scenarios, it encourages us to depend on stable, less volatile elements of the system.
+
+In statically typed languages like Java and C#, this means using import or using statements that refer exclusively to source modules containing interfaces or abstract classes. The goal is to shield higher-level modules from changes in lower-level, more volatile components.
+
+Another critical concept is separating abstractions from details. Abstractions describe what needs to be done, while details specify how to achieve it. Interfaces, for instance, should convey the what, leaving the how to be defined in concrete implementations.
+
+## Coding Practices for Dependency Inversion
+
+To adhere to the Dependency Inversion Principle, consider the following coding practices:
+
+1. **Avoid Referring to Concrete Classes:** Instead of referencing volatile concrete classes, use abstract interfaces. This ensures flexibility and enforces the use of abstract factories.
+
+2. **Prefer Composition Over Inheritance:** In statically typed languages, where inheritance is powerful yet rigid, opt for interfaces and composition to maintain flexibility.
+
+3. **Don't Override Concrete Functions:** Overriding concrete functions doesn't eliminate dependencies; it inherits them. Make functions abstract and create multiple implementations to manage dependencies effectively.
+
+4. **Explicit Dependencies Principle:** List dependencies in a constructor to avoid surprising clients. This ties in with the practice of dependency injection.
+
+## Example
+
+Let's consider a simplified example where we have a TextService that sends a message. Initially, it directly depends on a concrete class for message formatting (MessageFormatter), violating the Dependency Inversion Principle (DIP). We'll then refactor it to adhere to DIP.
+
+Before refactoring:
+
+```csharp
+// High-level module (TextService)
+public class TextService
+{
+    // Violates DIP by depending on a low-level module (MessageFormatter)
+    private MessageFormatter formatter;
+
+    public TextService()
+    {
+        // Concrete dependency
+        this.formatter = new MessageFormatter();
+    }
+
+    public string SendTextMessage(string message)
+    {
+        // Using the concrete dependency
+        return this.formatter.FormatMessage(message);
+    }
+}
+
+// Low-level module
+public class MessageFormatter
+{
+    public string FormatMessage(string message)
+    {
+        // Format the message (implementation details)
+        return $"[Text] {message}";
+    }
+}
+```
+After refactoring:
+
+```csharp
+// Abstraction (interface)
+public interface IMessageFormatter
+{
+    string FormatMessage(string message);
+}
+
+// Low-level module adhering to abstraction
+public class MessageFormatter : IMessageFormatter
+{
+    public string FormatMessage(string message)
+    {
+        // Format the message (implementation details)
+        return $"[Text] {message}";
+    }
+}
+
+// High-level module (TextService) depending on abstraction
+public class TextService
+{
+    private readonly IMessageFormatter formatter;
+
+    // Dependency injection through constructor
+    public TextService(IMessageFormatter formatter)
+    {
+        this.formatter = formatter;
+    }
+
+    public string SendTextMessage(string message)
+    {
+        // Using the abstraction (no direct dependency on concrete class)
+        return this.formatter.FormatMessage(message);
+    }
+}
+```
+
+In the refactored version, TextService no longer directly depends on a concrete class (MessageFormatter). Instead, it depends on the abstraction (IMessageFormatter), adhering to the Dependency Inversion Principle. This allows for flexibility, easier testing, and reduced coupling between high and low-level modules.
+
+## Conclusion
+
+Applying Dependency Inversion isn't about applying all SOLID principles upfront but rather employing them during refactoring. It's about splitting code into smaller classes, using abstractions to connect them, and avoiding unnecessary use of the new keyword.
+
+In conclusion, embracing Dependency Inversion leads to a solution that is easily testable, interchangeable, and extensible. Although the upfront effort in structuring your solution might be higher, the payoff in terms of maintainability and resilience to change is well worth it.
+
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    {% include "partials/head.njk" %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site">
+      {% include "partials/header.njk" %}
+      <main id="main" class="main">
+        {{ content | safe }}
+      </main>
+      {% include "partials/footer.njk" %}
+    </div>
+    <script src="/js/theme.js" defer></script>
+  </body>
+</html>
