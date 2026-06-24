@@ -1,6 +1,13 @@
 ---
 title: About
 description: About Roland Pop — software engineer, .NET developer, and lifelong learner.
+name: Roland Pop
+avatar: /images/avatar.jpg
+occupation: Software Engineer
+company: Are you Sirius ApS
+email: mail@rolandpop.com
+github: https://github.com/rolandpop
+linkedin: https://www.linkedin.com/in/rolandpop
 ---
 Welcome to my digital corner! I'm Roland, a seasoned software engineer with a fervent passion for technology, perpetual learning, and continuous improvement. Armed with a master's degree in computer science and over a decade of hands-on experience in the dynamic realm of IT, I embark on a journey of exploration and innovation.
 
