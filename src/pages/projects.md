@@ -1,6 +1,4 @@
 ---
-layout: layouts/page.njk
-permalink: /projects/index.html
 title: Projects
 description: Selected projects and experiments.
 ---

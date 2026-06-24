@@ -2,14 +2,11 @@
   "name": "rolandpop-blog",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve",
-    "start": "eleventy --serve"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve",
+    "start": "node build.mjs --serve"
   },
   "engines": {
     "node": ">=20.0.0"

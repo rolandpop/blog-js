@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/solid-dip/index.html
 title: Dependency Inversion Principle
 date: '2024-02-06'
 tags: ['SOLID']
-draft: false
 description: Dependency Inversion Principle (DIP) in SOLID emphasizes designing flexible and maintainable software by promoting high-level modules that depend on abstractions rather than concrete implementations. This principle encourages the use of abstract interfaces, composition over inheritance, and explicit constructor listings to manage dependencies effectively. DIP fosters a modular and adaptable codebase, enabling developers to enhance system resilience and ease of maintenance.
 ---
 

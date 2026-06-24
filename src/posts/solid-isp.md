@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/solid-isp/index.html
 title: Interface Segregation Principle
 date: '2024-02-04'
 tags: ['SOLID']
-draft: false
 description: The Interface Segregation Principle (ISP) emphasizes simplicity by discouraging unnecessary dependencies in interfaces. This principle ensures code clarity, maintains future resilience, and reduces the risk of complications associated with surplus functionality. By recognizing and addressing ISP violations, developers can streamline interfaces, leading to robust and maintainable software foundations that precisely cater to user needs. Embracing ISP promotes a happy coding experience!
 ---
 
