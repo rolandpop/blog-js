@@ -1,30 +1,29 @@
 # Roland's Blog
 
-A minimal static blog built with [Eleventy](https://www.11ty.dev/). Write posts in Markdown, run one build step, deploy to GitHub Pages.
+A zero-dependency static blog. Write posts in Markdown, run one Node.js build script, deploy to GitHub Pages.
 
 ## Why this stack
 
-- **Markdown in, HTML out** — no React, no Contentlayer, no Next.js dependency churn
-- **Tiny footprint** — two dev dependencies (`@11ty/eleventy`, syntax highlighting)
+- **No npm dependencies** — `build.mjs` uses only Node.js built-ins
+- **Markdown in, HTML out** — no React, no Eleventy, no dependency churn
 - **GitHub Pages native** — builds via Actions, serves static files from `_site/`
 - **Custom domain** — `CNAME` is set for `rolandpop.com`
 
 ## Quick start
 
 ```bash
-npm install
-npm run dev     # local preview at http://localhost:8080
 npm run build   # output to _site/
+npm run dev     # build and preview at http://localhost:8080
 ```
+
+No `npm install` required.
 
 ## Writing posts
 
-Add a file to `src/posts/`:
+Add a file to `src/posts/` named `my-post.md`:
 
 ```markdown
 ---
-layout: layouts/post.njk
-permalink: /blog/my-post/index.html
 title: My Post Title
 date: 2024-06-24
 tags: ['Architecture']
@@ -34,26 +33,22 @@ description: A short summary for listings and SEO.
 Your markdown content here.
 ```
 
-Set `draft: true` to exclude a post from the build.
+The post URL becomes `/blog/my-post/`.
 
 ## Deploying to GitHub Pages
 
 1. In your repo **Settings → Pages**, set source to **GitHub Actions**
-2. Add a repository secret `UMAMI_WEBSITE_ID` if you use Umami analytics (optional)
-3. Push to `main` — the workflow in `.github/workflows/pages.yml` builds and deploys
+2. Push to `main` — the workflow in `.github/workflows/pages.yml` builds and deploys
 
 ## Project structure
 
 ```
+build.mjs             Site generator (Node.js, zero deps)
 src/
-  _data/site.json       Site metadata
-  _includes/            Layouts and partials
-  posts/                Blog posts (markdown)
-  css/site.css          Styles
-  js/theme.js           Dark/light toggle
-public/                 Static assets (logo, favicons, CNAME)
+  _data/site.json     Site metadata
+  posts/              Blog posts (markdown)
+  pages/              Static pages (about, projects)
+  css/site.css        Styles
+  js/theme.js         Dark/light toggle
+public/               Static assets (logo, favicons, CNAME)
 ```
-
-## Migrating from the old Next.js template
-
-Your existing posts were converted from `data/blog/*.mdx` to `src/posts/*.md`. The frontmatter field `summary` was renamed to `description`. No React components were used in your posts, so the migration is straightforward.

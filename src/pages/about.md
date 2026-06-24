@@ -1,6 +1,4 @@
 ---
-layout: layouts/page.njk
-permalink: /about/index.html
 title: About
 description: About Roland Pop — software engineer, .NET developer, and lifelong learner.
 ---

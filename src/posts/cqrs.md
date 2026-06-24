@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/cqrs/index.html
 title: Enhancing Software Architecture with CQRS
 date: '2024-05-06'
 tags: ['Architecture']
-draft: false
 description: This article explores how integrating CQRS with the Mediator pattern enhances software architecture. CQRS separates read and write operations, while Mediator facilitates communication between components without direct dependencies. Together, they enable developers to build scalable, adaptable systems with enhanced modularity and maintainability for modern software development challenges.
 ---
 

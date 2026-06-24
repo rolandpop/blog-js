@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/solid-lsp/index.html
 title: Liskov Substitution Principle
 date: '2024-01-28'
 tags: ['SOLID']
-draft: false
 description: This blog post delves into the Liskov Substitution Principle (LSP) within SOLID software development. Highlighting the importance of seamless substitution of subtypes for their base types.
 ---
 

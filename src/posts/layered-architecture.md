@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/layered-architecture/index.html
 title: Layered Architecture
 date: '2024-03-02'
 tags: ['Architecture']
-draft: false
 description: Explore the layers of .NET Clean Architecture, a refined evolution of traditional Layered Architecture. Emphasizing the Dependency Rule, this approach organizes entities, use cases, adapters, and frameworks, ensuring a one-directional flow. While offering benefits like maintainability and testability, caution is advised to prevent undue complexity. 
 ---
 

@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/solid-ocp/index.html
 title: Open Closed Principle
 date: '2024-01-27'
 tags: ['SOLID']
-draft: false
 description: This article delves into the Open Closed Principle (OCP) in SOLID software development. It underscores the significance of allowing classes to be open for extension while closed for modification, promoting code that is easily extendable, reduces bugs, and minimizes impact on dependent code. The OCP, when applied alongside other SOLID principles, enables developers to create adaptable, maintainable, and bug-resistant code.
 ---
 

@@ -1,10 +1,7 @@
 ---
-layout: layouts/post.njk
-permalink: /blog/solid-srp/index.html
 title: Single Responsibility Principle
 date: '2024-01-21'
 tags: ['SOLID']
-draft: false
 description: This article explores the Single Responsibility Principle (SRP) within the SOLID principles of software development, emphasizing the importance of assigning a single responsibility to each class to achieve clean, maintainable, and adaptable code.
 ---
 
