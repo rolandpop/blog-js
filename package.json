@@ -9,6 +9,6 @@
     "start": "node build.mjs --serve"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=26.0.0"
   }
 }
