@@ -1,0 +1,153 @@
+---
+layout: layouts/post.njk
+permalink: /blog/solid-isp/index.html
+title: Interface Segregation Principle
+date: '2024-02-04'
+tags: ['SOLID']
+draft: false
+description: The Interface Segregation Principle (ISP) emphasizes simplicity by discouraging unnecessary dependencies in interfaces. This principle ensures code clarity, maintains future resilience, and reduces the risk of complications associated with surplus functionality. By recognizing and addressing ISP violations, developers can streamline interfaces, leading to robust and maintainable software foundations that precisely cater to user needs. Embracing ISP promotes a happy coding experience!
+---
+
+# Interface Segregation Principle
+
+## Introduction
+
+Interface Segregation Principle is straightforward—it asserts that clients should not be compelled to depend on methods they do not use. The term "interface" here not only refers to the interface type in C# but encompasses the accessible interface of any class.
+
+## The Dangers of Interface Overloading
+
+Depending on modules with surplus functionality can lead to complications. Picture using a framework tied to a specific database, restricting your application unnecessarily. **ISP** urges us to avoid such baggage, ensuring our code remains future-proof.
+
+## Recognizing ISP Violations
+
+Symptoms of **ISP** violations are glaring: oversized interfaces, brittle and challenging-to-maintain code, and excessive testing burdens. If your codebase exhibits numerous `NotImplementedException` instances, it's a red flag of **ISP** infringement.
+
+## Example
+
+Let's consider a scenario where we have an interface IWorker with multiple methods, and we'll refactor it to adhere to the Interface Segregation Principle 
+
+Before refactoring:
+
+```csharp
+public interface IWorker
+{
+    void Work();
+    void Eat();
+    void Sleep();
+    void Manage();
+}
+
+public class Manager : IWorker
+{
+    public void Work()
+    {
+        // Manager-specific work logic
+    }
+
+    public void Eat()
+    {
+        // Manager-specific eating logic
+    }
+
+    public void Sleep()
+    {
+        // Manager-specific sleeping logic
+    }
+
+    public void Manage()
+    {
+        // Manager-specific management logic
+    }
+}
+
+public class Programmer : IWorker
+{
+    public void Work()
+    {
+        // Programmer-specific work logic
+    }
+
+    public void Eat()
+    {
+        // Programmer-specific eating logic
+    }
+
+    public void Sleep()
+    {
+        // Programmer-specific sleeping logic
+    }
+
+    public void Manage()
+    {
+        // Programmer-specific management logic
+        // Oops! Programmers should not manage in this scenario!
+    }
+}
+```
+In this example, both Manager and Programmer classes implement the IWorker interface, but the Manage method is not applicable to the Programmer class. This violates the ISP.
+
+
+After refactoring
+
+```csharp
+public interface IWorker
+{
+    void Work();
+    void Eat();
+    void Sleep();
+}
+
+public interface IManager
+{
+    void Manage();
+}
+
+public class Manager : IWorker, IManager
+{
+    public void Work()
+    {
+        // Manager-specific work logic
+    }
+
+    public void Eat()
+    {
+        // Manager-specific eating logic
+    }
+
+    public void Sleep()
+    {
+        // Manager-specific sleeping logic
+    }
+
+    public void Manage()
+    {
+        // Manager-specific management logic
+    }
+}
+
+public class Programmer : IWorker
+{
+    public void Work()
+    {
+        // Programmer-specific work logic
+    }
+
+    public void Eat()
+    {
+        // Programmer-specific eating logic
+    }
+
+    public void Sleep()
+    {
+        // Programmer-specific sleeping logic
+    }
+}
+```
+
+In this refactored example, we've introduced a new interface IManager with the Manage method. Now, the Manager class implements both IWorker and IManager, adhering to the Interface Segregation Principle. The Programmer class, on the other hand, only implements the IWorker interface, avoiding unnecessary methods.
+
+## Conclusion
+
+In conclusion, **Interface Segregation Principle (ISP)** advocates simplicity. By streamlining interfaces and avoiding unnecessary dependencies, we ensure code clarity and future resilience. Embrace **ISP** for code that speaks precisely to its users' needs, fostering a robust and maintainable software foundation. Happy coding!
+
+
