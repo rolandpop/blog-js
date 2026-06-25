@@ -7,7 +7,7 @@ A zero-dependency static blog. Write posts in Markdown, run one Node.js build sc
 - **No npm dependencies** — `build.mjs` uses only Node.js built-ins
 - **Markdown in, HTML out** — no React, no Eleventy, no dependency churn
 - **GitHub Pages native** — builds via Actions, serves static files from `_site/`
-- **Custom domain** — `CNAME` is set for `rolandpop.com`
+- **Custom domain** — `CNAME` is set for `roland.rocks`
 
 ## Quick start
 

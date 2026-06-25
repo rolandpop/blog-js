@@ -1,4 +1,18 @@
+# Build output
 _site/
+
+# Dependencies (none required, but ignore if created accidentally)
 node_modules/
+
+# Old Next.js / Contentlayer leftovers (safe to delete locally)
+.next/
+out/
+.contentlayer/
+
+# Environment
+.env
+.env.*
+
+# OS / editor
 .DS_Store
 *.log
